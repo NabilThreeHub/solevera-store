@@ -1,0 +1,24 @@
+# Dependency - Jangan diupload karena ukurannya sangat besar
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Environment Variables - Berisi password database dan secret key (Privasi!)
+.env
+backend/.env
+frontend/.env
+
+# Production Build - File hasil compile frontend
+frontend/dist/
+frontend/build/
+
+# Uploads - Jangan upload gambar jualan pribadi ke GitHub
+# Kita biarkan foldernya ada tapi isinya kosong
+backend/public/uploads/*
+!backend/public/uploads/.gitkeep
+
+# Logs & Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
