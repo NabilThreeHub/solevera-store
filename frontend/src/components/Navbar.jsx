@@ -12,9 +12,24 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div className="container">
-        <Link className="navbar-brand fw-bold" to="/">SOLEVERA</Link>
+        {/* Mengganti teks biasa menjadi Logo + Teks Brand */}
+        <Link className="navbar-brand d-flex align-items-center fw-bold" to="/">
+          <img 
+            src="http://localhost:5000/uploads/logo.jpg" 
+            alt="Solevera Logo" 
+            height="35" 
+            className="d-inline-block align-top me-2"
+            style={{ objectFit: "contain" }}
+            onError={(e) => {
+              // Jika gambar gagal dimuat (misal server backend mati), tulisan SOLEVERA tetap rapi
+              e.target.style.display = 'none';
+            }} 
+          />
+          solevera.id
+        </Link>
+        
         <div className="d-flex align-items-center">
           <Link className="nav-link text-white me-3" to="/cart">🛒 Cart</Link>
           {user ? (

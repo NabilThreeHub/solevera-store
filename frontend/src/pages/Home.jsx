@@ -23,24 +23,117 @@ function Home() {
 
   return (
     <div className="pb-5">
-      {/* 3. HERO BANNER SECTION */}
-      <div className="p-5 mb-5 bg-dark text-white rounded-5 shadow-lg text-center mt-3 position-relative overflow-hidden">
-        <div className="container-fluid py-5 position-relative" style={{ zIndex: 2 }}>
-          <h1 className="display-3 fw-bold mb-3">SOLEVERA STORE</h1>
-          <p className="fs-5 text-secondary mb-4">
-            Definisikan gayamu dengan koleksi premium terbaik kami.
-          </p>
-          <button 
-            className="btn btn-light btn-lg rounded-pill px-5 fw-bold shadow"
-            onClick={() => window.scrollTo({ top: 600, behavior: 'smooth' })}
-          >
-            Mulai Belanja
-          </button>
+      
+      {/* ================= HERO BANNER SECTION (AUTOMATIC CAROUSEL) ================= */}
+      <div 
+        id="soleveraBanner" 
+        className="carousel slide carousel-fade mb-5 shadow-lg mt-3 rounded-5 overflow-hidden" 
+        data-bs-ride="carousel" 
+        data-bs-interval="3000" // Berganti otomatis setiap 3 detik
+      >
+        {/* Indikator Garis di Bawah Banner */}
+        <div className="carousel-indicators" style={{ zIndex: 3 }}>
+          <button type="button" data-bs-target="#soleveraBanner" data-bs-slide-to="0" className="active" aria-current="true"></button>
+          <button type="button" data-bs-target="#soleveraBanner" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#soleveraBanner" data-bs-slide-to="2"></button>
         </div>
-        {/* Dekorasi Aksen Lingkaran di Banner */}
-        <div className="position-absolute top-0 start-0 translate-middle bg-secondary opacity-25 rounded-circle" style={{ width: '300px', height: '300px' }}></div>
-      </div>
 
+        {/* Lapisan Slide Foto */}
+        <div className="carousel-inner">
+          
+          {/* Slide 1 */}
+          <div className="carousel-item active">
+            <div 
+              className="p-5 text-white text-center d-flex align-items-center justify-content-center position-relative"
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('http://localhost:5000/uploads/banner1.jpg')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                minHeight: "450px"
+              }}
+            >
+              <div className="container py-5 position-relative" style={{ zIndex: 2 }}>
+                <h1 className="display-3 fw-bold mb-3 tracking-wide">solevera.id</h1>
+                <p className="fs-5 text-light opacity-75 mb-4">
+                  Definisikan gayamu dengan koleksi premium terbaik kami.
+                </p>
+                <button 
+                  className="btn btn-light btn-lg rounded-pill px-5 fw-bold shadow"
+                  onClick={() => window.scrollTo({ top: 550, behavior: 'smooth' })}
+                >
+                  Mulai Belanja
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Slide 2 */}
+          <div className="carousel-item">
+            <div 
+              className="p-5 text-white text-center d-flex align-items-center justify-content-center position-relative"
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('http://localhost:5000/uploads/banner2.jpg')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                minHeight: "450px"
+              }}
+            >
+              <div className="container py-5 position-relative" style={{ zIndex: 2 }}>
+                <h1 className="display-3 fw-bold mb-3 tracking-wide">NEW ARRIVALS</h1>
+                <p className="fs-5 text-light opacity-75 mb-4">
+                  Temukan tren fashion up-to-date rilisan terbaru minggu ini.
+                </p>
+                <button 
+                  className="btn btn-light btn-lg rounded-pill px-5 fw-bold shadow"
+                  onClick={() => window.scrollTo({ top: 550, behavior: 'smooth' })}
+                >
+                  Lihat Koleksi
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Slide 3 */}
+          <div className="carousel-item">
+            <div 
+              className="p-5 text-white text-center d-flex align-items-center justify-content-center position-relative"
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('http://localhost:5000/uploads/banner3.jpg')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                minHeight: "450px"
+              }}
+            >
+              <div className="container py-5 position-relative" style={{ zIndex: 2 }}>
+                <h1 className="display-3 fw-bold mb-3 tracking-wide">SPECIAL OFFER</h1>
+                <p className="fs-5 text-light opacity-75 mb-4">
+                  Jangan lewatkan potongan harga spesial khusus untuk pelanggan setia.
+                </p>
+                <button 
+                  className="btn btn-light btn-lg rounded-pill px-5 fw-bold shadow"
+                  onClick={() => window.scrollTo({ top: 550, behavior: 'smooth' })}
+                >
+                  Ambil Promo
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Tombol Navigasi Panah Kiri & Kanan */}
+        <button className="carousel-control-prev" type="button" data-bs-target="#soleveraBanner" data-bs-slide="prev" style={{ zIndex: 3 }}>
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#soleveraBanner" data-bs-slide="next" style={{ zIndex: 3 }}>
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+      </div>
+      {/* =========================================================================== */}
+
+      {/* Bagian List Produk */}
       <div className="container">
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2 className="fw-bold m-0">Koleksi Terbaru</h2>
@@ -56,7 +149,6 @@ function Home() {
           <div className="row">
             {products.length > 0 ? (
               products.map((product) => (
-                /* 1. LAYOUT KARTU PRODUK */
                 <div className="col-6 col-md-4 col-lg-3 mb-4" key={product.id}>
                   <div className="card h-100 border-0 shadow-sm card-hover">
                     <div className="position-relative overflow-hidden rounded-top">
@@ -70,7 +162,6 @@ function Home() {
                           transition: "transform 0.5s ease" 
                         }}
                       />
-                      {/* Label Category di atas gambar */}
                       <div className="position-absolute top-0 start-0 m-2">
                         <span className="badge bg-dark bg-opacity-75 small">
                           {product.category}
